@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        maven { url = "https://maven.minecraftforge.net/" }
+    }
+    dependencies {
+        classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+group = 'me.jiyun233'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:1.12.2-14.23.5.2860"
+
+}
+
+minecraft {
+    mappings channel: "stable", version: "39-1.12"
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+        include 'mcmod.info'
+    }
+}

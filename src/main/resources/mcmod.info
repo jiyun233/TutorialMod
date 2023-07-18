@@ -1,0 +1,11 @@
+[
+  {
+    "modid": "tutorial",
+    "name": "Tutorial Mod",
+    "description": "A mod for 2b2t server",
+    "version": "0.0.1-SNAPSHOT",
+    "authorList": [
+      "jiyun233"
+    ]
+  }
+]
