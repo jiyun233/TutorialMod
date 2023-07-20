@@ -1,5 +1,6 @@
 package me.jiyun233;
 
+import me.jiyun233.command.CommandManager;
 import me.jiyun233.modules.ModuleManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -16,11 +17,14 @@ public class TutorialMod {
     public static final String MOD_VER = "0.0.1-SNAPSHOT";
 
     public static ModuleManager moduleManager;
+    public static CommandManager commandManager;
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         Display.setTitle(MOD_NAME + " " + MOD_VER + " by jiyun233");
         moduleManager = new ModuleManager();
         moduleManager.init();
+        commandManager = new CommandManager();
+        commandManager.init();
     }
 }
